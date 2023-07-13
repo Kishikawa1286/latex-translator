@@ -1,5 +1,9 @@
 # latex-translator
 
+With this tool, you can translate and convert `.tex` files into Japanese-translated `.md` files.
+Notably, it allows for the specification of a correspondence table between sentences in the original language and the translated Japanese sentences.
+This feature ensures that even specialized documents can be accurately translated and transformed into a readable Markdown format.
+
 ## Setup
 
 ### 1. Launch Dev Container
@@ -20,15 +24,15 @@ cp .env.example .env
 
 ## Usage
 
-### 1. Put the .tex file to be translated
+### 1. Put the `.tex` file to be translated
 
-Put the .tex file to be translated anywhere in the workspace.
+Put the `.tex` file to be translated anywhere in the workspace.
 
-.tex files exported from [Mathpix](https://mathpix.com/) are assumed as input.
+`.tex` files exported from [Mathpix](https://mathpix.com/) are assumed as input.
 
 ### 2. Configure file paths
 
-`TEX_PATH` (original .tex file put in 1.), `MD_PATH` (.md file with original content) and `TRANSLATION_MD_PATH` (translated .md file) are defined in top of [src/translate.ipynb](./src/translate.ipynb).
+`TEX_PATH` (original `.tex` file put in 1.), `MD_PATH` (`.md` file with original content) and `TRANSLATION_MD_PATH` (translated `.md` file) are defined in top of [src/translate.ipynb](./src/translate.ipynb).
 To change the file paths, edit the values of these variables.
 
 To notice ChatGPT list of pair of original and translated sentences, `corr_list` should be set.
