@@ -6,21 +6,17 @@
 		"ghcr.io/devcontainers/features/git:1": {},
 		"ghcr.io/devcontainers/features/common-utils:2": {
 			"configureZshAsDefaultShell": true
-		},
-		"ghcr.io/eitsupi/devcontainer-features/julia:0": {}
+		}
 	},
-	"postCreateCommand": "!apt update && apt install -y poppler-utils && pip install python-dotenv regex aiohttp",
-	"service": "texlive-ja",
-	"workspaceFolder": "/workspaces/papers-2023",
+	// python-dotenv, regex, aiohttp, nest_asyncio, tqdm is required.
+	"postCreateCommand": "pip install -r ./.devcontainer/requirements.txt",
+	"workspaceFolder": "/workspaces/latex-translator",
 	"shutdownAction": "stopCompose",
 	"customizations": {
 		"vscode": {
 			"extensions": [
 				"ms-python.python",
-				"marp-team.marp-vscode",
-				"tomoki1207.pdf",
-				"ms-toolsai.jupyter",
-				"julialang.language-julia"
+				"ms-toolsai.jupyter"
 			],
 			"settings": {
 				"terminal.integrated.shell": "/bin/bash",

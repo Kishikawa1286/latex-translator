@@ -210,6 +210,7 @@ def latex_table_to_markdown_table(latex: str) -> str:
 
 def remove_comments(latex: str) -> str:
     latex = latex.replace(r'\%', '__TEMP__PERCENT__')
+    latex = re.sub(' %.*', '', latex)
     latex = re.sub('%.*', '', latex)
     latex = latex.replace('__TEMP__PERCENT__', r'\%')
 
@@ -275,5 +276,6 @@ def latex_to_markdown(latex: str) -> str:
     latex = re.sub(r"\\begin{document}", "", latex)
     latex = re.sub(r"\\end{document}", "", latex)
     latex = latex_table_to_markdown_table(latex)
-    latex = re.sub(r"\n{3,}", "\n\n", latex)
-    return remove_text_before_first_heading(latex)
+    latex = remove_text_before_first_heading(latex)
+    latex = re.sub(r"\n\n\n", "\n\n", latex)
+    return latex
