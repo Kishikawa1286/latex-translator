@@ -1,0 +1,43 @@
+{
+	"name": "Ubuntu",
+	"image": "ubuntu:jammy",
+	"features": {
+		"ghcr.io/devcontainers/features/python:1": {},
+		"ghcr.io/devcontainers/features/git:1": {},
+		"ghcr.io/devcontainers/features/common-utils:2": {
+			"configureZshAsDefaultShell": true
+		},
+		"ghcr.io/eitsupi/devcontainer-features/julia:0": {}
+	},
+	"postCreateCommand": "!apt update && apt install -y poppler-utils && pip install python-dotenv regex aiohttp",
+	"service": "texlive-ja",
+	"workspaceFolder": "/workspaces/papers-2023",
+	"shutdownAction": "stopCompose",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-python.python",
+				"marp-team.marp-vscode",
+				"tomoki1207.pdf",
+				"ms-toolsai.jupyter",
+				"julialang.language-julia"
+			],
+			"settings": {
+				"terminal.integrated.shell": "/bin/bash",
+				"editor.codeActionsOnSave": {
+					"source.organizeImports.python": true
+				},
+				"python.analysis.typeCheckingMode": "basic",
+				"python.formatting.provider": "autopep8",
+				"python.formatting.autopep8Args": [
+					"--max-line-length",
+					"80"
+				],
+				"[python]": {
+					"editor.formatOnSave": true,
+					"editor.formatOnPaste": true
+				}
+			}
+		}
+	}
+}
